@@ -4,7 +4,7 @@ import { LoanForm } from './components/LoanForm';
 import { PredictionResultView } from './components/PredictionResult';
 import { ApplicantData, PredictionResult } from './types';
 import { DEFAULT_APPLICANT } from './constants';
-import { predictEligibility } from './services/geminiService';
+import { predictEligibility } from './services/groqService';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Custom Metallic Logo Component matching the user's uploaded image
@@ -99,7 +99,7 @@ export default function App() {
           </div>
           <div className="flex items-center gap-4">
              <a href="https://groq.com" target="_blank" rel="noreferrer" className="hidden text-sm font-medium text-slate-400 transition-colors hover:text-white sm:block">
-               Simulated by AI
+               Simulated by Groq
              </a>
              {view === 'landing' && (
                <button onClick={() => setView('app')} className="text-sm font-medium text-blue-400 hover:text-blue-300">
@@ -152,7 +152,7 @@ export default function App() {
               </div>
 
               <div className="mt-16 border-t border-slate-800 pt-8 text-center text-sm text-slate-500">
-                 <p>This is a demonstration of Binary Classification using Generative AI.</p>
+                 <p>This is a demonstration of Binary Classification using Generative AI (Groq).</p>
                  <p className="mt-2 opacity-60">Not valid for real financial advice.</p>
               </div>
             </motion.div>
