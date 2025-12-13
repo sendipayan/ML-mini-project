@@ -1,0 +1,5 @@
+{
+  "name": "Loan Eligibility Classifier",
+  "description": "A demo application simulating ML-based loan eligibility prediction using binary classification concepts.",
+  "requestFramePermissions": []
+}
