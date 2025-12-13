@@ -24,7 +24,6 @@ export const LoanForm: React.FC<LoanFormProps> = ({ data, onChange, onSubmit, is
     }
     
     if (id === 'existingLiabilities') {
-        // Handle boolean select manually if needed, or simple cast
         finalValue = value === 'true';
     }
 
@@ -37,17 +36,17 @@ export const LoanForm: React.FC<LoanFormProps> = ({ data, onChange, onSubmit, is
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <Card className="h-full border-slate-800 bg-slate-900/60">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Calculator className="h-5 w-5 text-blue-400" />
+      <Card className="h-full border-slate-200 bg-white/80 backdrop-blur-sm shadow-md">
+        <CardHeader className="border-b border-slate-100 pb-4">
+          <CardTitle className="flex items-center gap-2 text-slate-900">
+            <Calculator className="h-5 w-5 text-indigo-600" />
             Applicant Details
           </CardTitle>
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-slate-500">
             Enter financial details to simulate the classification model.
           </p>
         </CardHeader>
-        <CardContent className="space-y-6">
+        <CardContent className="space-y-6 pt-6">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <Input
               id="applicantIncome"
@@ -89,7 +88,7 @@ export const LoanForm: React.FC<LoanFormProps> = ({ data, onChange, onSubmit, is
 
           <div className="space-y-4">
              <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-300">Credit Score Range</label>
+                <label className="text-sm font-medium text-slate-600">Credit Score Range</label>
                 <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
                   {Object.values(CreditScoreRange).map((range) => (
                     <button
@@ -97,8 +96,8 @@ export const LoanForm: React.FC<LoanFormProps> = ({ data, onChange, onSubmit, is
                       onClick={() => onChange('creditScore', range)}
                       className={`rounded-md px-3 py-2 text-xs font-medium transition-all ${
                         data.creditScore === range
-                          ? 'bg-blue-600 text-white ring-2 ring-blue-500 ring-offset-2 ring-offset-slate-900'
-                          : 'bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-slate-200'
+                          ? 'bg-indigo-600 text-white shadow-md ring-2 ring-indigo-500 ring-offset-2'
+                          : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900'
                       }`}
                     >
                       {range.split(' ')[0]}
@@ -155,7 +154,7 @@ export const LoanForm: React.FC<LoanFormProps> = ({ data, onChange, onSubmit, is
             <Button
               onClick={onSubmit}
               disabled={isLoading}
-              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700"
+              className="w-full bg-slate-900 hover:bg-slate-800 text-white"
               size="lg"
             >
               {isLoading ? (
@@ -164,7 +163,7 @@ export const LoanForm: React.FC<LoanFormProps> = ({ data, onChange, onSubmit, is
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                   </svg>
-                  Processing Classification...
+                  Running Classifier...
                 </span>
               ) : (
                 <span className="flex items-center gap-2">
