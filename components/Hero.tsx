@@ -216,14 +216,14 @@ export const Hero: React.FC<HeroProps> = ({ onStart }) => {
                      </div>
                      <div className="pl-4 space-y-2">
                         <p><span className="text-indigo-400">score</span> = 0</p>
-                        <p>if applicant.credit_score > 700:</p>
+                        <p>if applicant.credit_score &gt; 700:</p>
                         <p className="pl-4 text-emerald-400">score += 0.4</p>
                         <p>if applicant.dti_ratio &lt; 0.3:</p>
                         <p className="pl-4 text-emerald-400">score += 0.3</p>
                         <br />
                         <p><span className="text-slate-500"># Sigmoid activation</span></p>
                         <p>probability = <span className="text-yellow-200">sigmoid</span>(score)</p>
-                        <p>return probability > 0.65</p>
+                        <p>return probability &gt; 0.65</p>
                      </div>
                   </div>
                </div>
